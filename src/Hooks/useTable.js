@@ -11,8 +11,8 @@ const TableComponent = ({ columns, data }) => {
   } = useTable({ columns, data });
 
   return (
-    <div className=' text-center justify-center flex mt-60'>
-    <table {...getTableProps()} >
+
+    <table {...getTableProps()} class="table-auto" >
       <thead className='border border-orange-500' >
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()} className='border border-orange-500' >
@@ -41,7 +41,7 @@ const TableComponent = ({ columns, data }) => {
         })}
       </tbody>
     </table>
-    </div>
+
   );
 };
 
