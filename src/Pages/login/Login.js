@@ -58,22 +58,29 @@ export default function Login() {
                            <Form className="mt-6" >
                                <div className="mb-2">
                                    <label
+                                       for="email"
                                        className="block text-sm font-semibold text-gray-800"
                                    >
                                        Email
                                    </label>
-                                   <Field className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40" name="email" />{errors.email && touched.email ? <div className=' text-red-500'><p>{errors.email}</p></div> : null}
+                                   <Field 
+                                       className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                    name="email" />{errors.email && touched.email ? <div className=' text-red-500'><p>{errors.email}</p></div> : null}
                        
                                </div>
                                <div className="mb-2">
                                    <label
+                                       for="password"
                                        className="block text-sm font-semibold text-gray-800"
                                    >
                                        Password
                                    </label>
-                                   <Field name="password" type="password"
-                                   className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                       />{errors.password && touched.password ? <div className=' text-red-500'><p>{errors.password}</p></div> : null}
+                                   <Field 
+                                   name="password"
+                                   type="password"
+                                       className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                       
+                                    />{errors.password && touched.password ? <div className=' text-red-500'><p>{errors.password}</p></div> : null}
                        
                                </div>
                                <a
@@ -88,7 +95,6 @@ export default function Login() {
                                    </button>
                                </div>
                                </Form>
-                       
                            <p className="mt-8 text-xs font-light text-center text-gray-700">
                                {" "}
                                Don't have an account?{" "}
