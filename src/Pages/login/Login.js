@@ -12,8 +12,8 @@ export default function Login() {
     const {url}=useContext(OpenContext);
     const navigate = useNavigate();
     const loginSchema = yup.object().shape({
-        email: yup.string().email().required(),
-        password: yup.string().min(8, "Too Short").required("Required")
+        email: yup.string().email().required("Email is Required"),
+        password: yup.string().min(8, "Too Short").required("Password is Required")
     })
     return (
         <div>

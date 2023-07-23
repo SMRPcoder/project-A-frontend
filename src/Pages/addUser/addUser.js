@@ -37,12 +37,11 @@ export default function AddUser() {
 
     }, [token])
 
-
     const signupSchema = yup.object().shape({
-        firstname: yup.string().min(2, "Minimun 2 Words Are Required").required("Required"),
-        lastname: yup.string().required("Required"),
-        password: yup.string().min(8, "Minimum 8 Words Required").required("Required"),
-        email: yup.string().email().required("Required"),
+        firstname: yup.string().min(2, "Minimun 2 Words Are Required").required("First Name is Required"),
+        lastname: yup.string().required("Last Name is Required"),
+        password: yup.string().min(8, "Minimum 8 Words Required").required("Password is Required"),
+        email: yup.string().email().required("Email is Required"),
         file: yup.mixed().required("Required")
     })
 
