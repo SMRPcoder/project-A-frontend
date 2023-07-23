@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import Login from './Pages/login/Login';
 import Dashboard from './Pages/dashBoard/Dashboard';
-import EditUser from './Pages/editUser/editUser';
+import EditUser from './Pages/edit/edit';
 import AdminRoutes from './Hooks/AdminRoutes';
 import AddUser from './Pages/addUser/addUser';
 import OpenRoutes from './Hooks/OpenRoutes';
@@ -32,7 +32,7 @@ root.render(
         <Route path="/admin/*" element={<AdminRoutes isAuthenticated={isAuthenticated?isAuthenticated:null} url={url} />}>
           <Route path="adduser" element={<AddUser />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="editUser" element={<EditUser />} />
+          <Route path="edit" element={<EditUser />} />
           <Route path="viewEmployees" element={<ViewEmployees />} />
           <Route path="viewUsers" element={<ViewUsers />} />
 

@@ -19,7 +19,7 @@ const handleEdit=(e)=>{
             emp_id:id
         }
         })
-        navigate("/admin/editUser");
+        navigate("/admin/edit");
 }
 
     useEffect(()=>{
