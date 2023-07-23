@@ -11,8 +11,12 @@ const TableComponent = ({ columns, data }) => {
   } = useTable({ columns, data });
 
   return (
+<<<<<<< HEAD
 
     <div className="flex flex-col bg-white">
+=======
+<div className="flex flex-col bg-white">
+>>>>>>> d6af87a625f0c58d9be2968c1ec8f9cc5aea71d2
     <div className="overflow-x-auto">
         <div className="p-1.5 w-full inline-block align-middle">
             <div className="overflow-hidden border rounded-lg">
@@ -44,6 +48,7 @@ const TableComponent = ({ columns, data }) => {
               );
             })}
           </tbody>
+<<<<<<< HEAD
                     {/* <tbody >
                         <tr>
                             <td >
@@ -127,6 +132,9 @@ const TableComponent = ({ columns, data }) => {
                             </td>
                         </tr>
                     </tbody> */}
+=======
+
+>>>>>>> d6af87a625f0c58d9be2968c1ec8f9cc5aea71d2
                 </table>
             </div>
         </div>
