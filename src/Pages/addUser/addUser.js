@@ -52,12 +52,13 @@ export default function AddUser() {
             <div className='text-center p-4' >
                 <h1 className='text-2xl text-orange-500 font-bold' >ADD USER</h1>
             </div>
-            <div className='text-center flex'>
+            <div className='text-center pl-[200px] pr-[200px]'>
                 <Formik initialValues={{
                     firstname: "",
                     lastname: "",
                     password: "",
                     email: "",
+                    roleId:"",
                     file: ""
                 }}
                     validationSchema={signupSchema}
@@ -80,65 +81,96 @@ export default function AddUser() {
                         })
                     }}
                 >
-                    <div className='border border-orange-500 flex mr-[25rem] ml-[25rem] text-center'>
-                        <Form className='p-4' id='edit_form_user' encType='multipart/form-data' >
-                            <div className='p-6 flex text-orange-500 text-center min-w-full'>
-                            <div className='pr-20'>
-                                <label>Firstname</label>
-                                </div>
-                                <div className='px-20'>
-                                    <Field className=" w-60 h-8" name="firstname" />
-                                </div>
-                            </div>
-                            <div className='p-6 flex text-orange-500 text-center' >
-                            <div className='pr-20'>
-                                <label>Lastname</label>
-                                </div>
-                                <div className='px-20'>
-                                    <Field className=" w-60 h-8" name="lastname" />
-                                </div>
-                            </div>
-                            <div className='p-6 flex text-orange-500 text-center' >
-                            <div className='pr-20'>
-                                <label>Password</label>
-                                </div>
-                                <div className='px-20'>
-                                    <Field className=" w-60 h-8" name="password" />
-                                </div>
-                            </div>
-                            <div className='p-6 flex text-orange-500 text-center' >
-                            <div className='pr-20'>
-                                <label>Email</label>
-                                </div>
-                                <div className='px-20'>
-                                    <Field className=" w-60 h-8" name="email" />
-                                </div>
-                            </div>
-                            <div className='p-6 flex text-orange-500 text-center' >
-                            <div className='pr-20'>
-                                <label>Profile</label>
-                                </div>
-                                <div className='px-20'>
-                                    <Field className=" w-60 h-8" name="file" type="file" />
-                                </div>
-                            </div>
-                            <div className='p-6 flex text-orange-500 text-center' >
-                            <div className='pr-20'>
-                                <label>Roles</label>
-                                </div>
-                                <div className='px-20 text-black'>
-                                    <Field className=" w-60 h-8" name="roleId" component="select">
-                                        {roleData.length > 0 ? roleData.map((elem, index) => (
-                                            <option key={index} value={elem.value}>{elem.label}</option>
-                                        )) : null}
-                                    </Field>
-                                </div>
-                            </div>
+                    {({ errors, touched }) => (
+                        <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+                            <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+                                <h1 className="text-3xl font-semibold text-center text-purple-700 underline">
+                                    ADD User
+                                </h1>
 
-                            <button className='border border-orange-500 text-white rounded p-4 hover:bg-orange-500' type="submit">Create</button>
+                                <Form className="mt-6" id="edit_form_user" encType='multipart/form-data' >
+                                   
+                                    <div className="mb-2">
+                                        <label
+                                            className="block text-sm font-semibold text-gray-800"
+                                        >
+                                            First Name
+                                        </label>
+                                        <Field
+                                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                            name="firstname" />{errors.firstname && touched.firstname ? <div className=' text-red-500'><p>{errors.firstname}</p></div> : null}
+                                    </div>
+                                    <div className="mb-2">
+                                        <label
+                                            className="block text-sm font-semibold text-gray-800"
+                                        >
+                                            Lastname
+                                        </label>
+                                        <Field
+                                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                            name="lastname" />{errors.lastname && touched.lastname ? <div className=' text-red-500'><p>{errors.lastname}</p></div> : null}
 
-                        </Form>
-                    </div>
+                                    </div>
+                                    <div className="mb-2">
+                                        <label
+                                            className="block text-sm font-semibold text-gray-800"
+                                        >
+                                            Email
+                                        </label>
+                                        <Field
+                                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                            name="email" />{errors.email && touched.email ? <div className=' text-red-500'><p>{errors.email}</p></div> : null}
+
+                                    </div>
+                                    <div className="mb-2">
+                                        <label
+                                            className="block text-sm font-semibold text-gray-800"
+                                        >
+                                            Password
+                                        </label>
+                                        <Field
+                                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                            name="password" />{errors.password && touched.password ? <div className=' text-red-500'><p>{errors.password}</p></div> : null}
+
+                                    </div>
+                                    <div className="mb-2">
+                                        <label
+                                            className="block text-sm font-semibold text-gray-800"
+                                        >
+                                            Profile
+                                        </label>
+                                        <Field
+                                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                            name="file" type="file" />
+
+                                    </div>
+                                    <div className="mb-2">
+                                        <label
+                                            className="block text-sm font-semibold text-gray-800"
+                                        >
+                                            Role
+                                        </label>
+                                        <Field
+                                            className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                            name="roleId" component="select">
+                                            {roleData.length > 0 ? roleData.map((elem, index) => (
+                                                <option key={index} value={elem.value}>{elem.label}</option>
+                                            )) : null}
+                                        </Field>
+                                        {errors.roleId && touched.roleId ? <div className=' text-red-500'><p>{errors.roleId}</p></div> : null}
+
+                                    </div>
+
+                                    <div className="mt-6">
+                                        <button type='submit' className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                                            Edit User
+                                        </button>
+                                    </div>
+                                </Form>
+                           
+                            </div>
+                        </div>
+                    )}
                 </Formik>
             </div>
         </div>
