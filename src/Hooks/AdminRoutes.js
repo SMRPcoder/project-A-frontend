@@ -21,7 +21,7 @@ const AdminRoutes = ({isAuthenticated,url}) => {
 
   // useTi
 useEffect(()=>{
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
 
     if (!isAuthenticated) {
       if(token){
