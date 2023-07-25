@@ -13,6 +13,9 @@ export default function Dashboard() {
   const handleViewUsers=()=>{
     navigate("/admin/viewUsers");
   }
+  const handleRoles=()=>{
+    navigate("/admin/viewRoles");
+  }
   const handleLogout=()=>{
     localStorage.clear();
     navigate("/app/login");
@@ -22,7 +25,8 @@ export default function Dashboard() {
       <NavBar options={[
         {"name":"Add User","function":handleNavigate},
         {"name":"View All Employees","function":handleViewEmployees},
-        {"name":"View All Users","function":handleViewUsers}
+        {"name":"View All Users","function":handleViewUsers},
+        {"name":"View Roles","function":handleRoles}
         ]} 
         button={[
           {"name":"Log out","function":handleLogout}

@@ -16,7 +16,9 @@ const AdminRoutes = ({isAuthenticated,url}) => {
 
   const getToken=(thisToken)=>{
     const newtoken=thisToken.split(" ")[1];
-      setTokenData(jwtDecode(newtoken));
+    const decoded_token=jwtDecode(newtoken);
+    // console.log(decoded_token);
+      setTokenData(decoded_token);
   }
 
   // useTi

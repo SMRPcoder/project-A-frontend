@@ -11,6 +11,7 @@ import AddUser from './Pages/addUser/addUser';
 import OpenRoutes from './Hooks/OpenRoutes';
 import ViewEmployees from './Pages/view/viewEmployees';
 import ViewUsers from './Pages/view/viewUsers';
+import ViewRoles from './Pages/view/viewAllRoles';
 
 
 
@@ -35,6 +36,7 @@ root.render(
           <Route path="edit" element={<EditUser />} />
           <Route path="viewEmployees" element={<ViewEmployees />} />
           <Route path="viewUsers" element={<ViewUsers />} />
+          <Route path="viewRoles" element={<ViewRoles />} />
 
         </Route>
 
