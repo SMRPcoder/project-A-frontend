@@ -2,7 +2,7 @@
 import { Field, Form, Formik, useFormik } from 'formik';
 import * as yup from "yup";
 import React, { useContext, useEffect, useState } from 'react'
-import axios from 'axios';
+import Axios from '../../Configs/axiosConfig';
 import { Notify } from 'notiflix';
 import jwt_decode from 'jwt-decode';
 import { AuthContext } from '../../Hooks/AdminRoutes';
@@ -35,7 +35,7 @@ export default function EditUser() {
         if (token.length > 0) {
             const newtoken = jwt_decode(token.split(" ")[1]);
             setTokenData(newtoken);
-            axios.get(`${url}/admin/getRolesList`, {
+            Axios.get(`${url}/admin/getRolesList`, {
                 headers: {
                     "Authorization": token
                 }
@@ -49,7 +49,7 @@ export default function EditUser() {
                 })
 
             })
-            axios.post(`${url}/admin/viewOne`, { id: customData.emp_id }, {
+            Axios.post(`${url}/admin/viewOne`, { id: customData.emp_id }, {
                 headers: {
                     "Authorization": token
                 }
@@ -96,7 +96,7 @@ const iniVals={
                         var Editform = document.getElementById("edit_form_user");
                         var newFormData = new FormData(Editform)
                         if(newFormData){
-                            axios.post(`${url}/admin/editOne`, newFormData, {
+                            Axios.post(`${url}/admin/editOne`, newFormData, {
                                 headers: {
                                     "Content-Type": "multipart/form-data",
                                     "Authorization": token

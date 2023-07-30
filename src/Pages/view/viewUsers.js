@@ -1,4 +1,4 @@
-import axios from 'axios'
+import Axios from '../../Configs/axiosConfig';
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../Hooks/AdminRoutes'
 import TableComponent from '../../Hooks/useTable';
@@ -24,7 +24,7 @@ const handleEdit=(e)=>{
 
     useEffect(()=>{
         if(token){
-            axios.post(`${url}/admin/viewAll`,{
+            Axios.post(`${url}/admin/viewAll`,{
                 role:"user"
             },{
                 headers:{

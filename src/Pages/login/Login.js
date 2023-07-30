@@ -2,7 +2,7 @@
 import { Field, Form, Formik } from 'formik'
 import * as yup from "yup";
 import React, { useContext } from 'react'
-import axios from 'axios';
+import Axios from '../../Configs/axiosConfig';
 import { Notify } from 'notiflix';
 import { useNavigate } from 'react-router-dom';
 import { OpenContext } from '../../Hooks/OpenRoutes';
@@ -12,8 +12,8 @@ export default function Login() {
     const {url}=useContext(OpenContext);
     const navigate = useNavigate();
     const loginSchema = yup.object().shape({
-        email: yup.string().email().required("Email is Required"),
-        password: yup.string().min(8, "Too Short").required("Password is Required")
+        email: yup.string().email().required(),
+        password: yup.string().min(8, "Too Short").required("Required")
     })
     return (
         <div>
@@ -29,7 +29,7 @@ export default function Login() {
                 validationSchema={loginSchema}
                 onSubmit={(values) => {
                     // console.log(values)
-                    axios.post(`${url}/user/login`, {
+                    Axios.post(`${url}/user/login`, {
                         ...values
                     }).then(data => {
                         if (data.data.status) {
@@ -57,7 +57,7 @@ export default function Login() {
                        <Form className="mt-6" >
                            <div className="mb-2">
                                <label
-                                   for="email"
+                             
                                    className="block text-sm font-semibold text-gray-800"
                                >
                                    Email
@@ -69,7 +69,7 @@ export default function Login() {
                            </div>
                            <div className="mb-2">
                                <label
-                                   for="password"
+                                
                                    className="block text-sm font-semibold text-gray-800"
                                >
                                    Password
